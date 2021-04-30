@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nextjs-web-app
+  labels:
+    app: nextjs-web-app
+data:
+  NEXT_STAGE: dev
+  NEXT_APIGW_KEY: 'x-dev'
+  NEXT_TARGET: server
+  APIGW_URL: ''

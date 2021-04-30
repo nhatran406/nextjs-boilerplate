@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nextjs-web-app-svc
+  labels:
+    app: nextjs-web-app
+    service: nextjs-web-app-svc
+spec:
+  type: NodePort
+  ports:
+    - name: nextjs-web-app-tcp
+      port: 80
+      protocol: TCP
+  selector:
+    app: nextjs-web-app

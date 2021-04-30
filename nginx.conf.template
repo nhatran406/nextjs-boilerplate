@@ -1,0 +1,58 @@
+server {
+    listen 80;
+    root /app/build;
+    index index.html index.htm;
+
+    # Issue with ip and the nginx proxy
+    real_ip_header X-Forwarded-For;
+    set_real_ip_from 0.0.0.0/0;
+
+    # Default Gzip Configuration (Set Exceptions Per Location)
+    gzip on;
+    gzip_comp_level 1;
+    gzip_http_version 1.1;
+    gzip_vary On;
+    gzip_proxied any;
+    gzip_types text/plain text/css text/xml image/svg+xml application/xml application/xml+rss application/xml+atom text/javascript application/x-javascript application/javascript application/json;
+    gzip_disable     "MSIE [1-6]\.";
+    
+   
+    # Assets not worth gzipping
+    location ~* ^.+\.(jpg|jpeg|gif|png|ico)$  {
+        access_log off;
+        gzip off;
+        expires 30d;
+    }
+
+    # Assets worth gzipping
+    location ~* ^.+\.(css|js|map|html|txt)$ {
+        access_log off;
+        expires 30d;
+        gzip on;
+        charset utf-8;
+    }
+
+  	# Web fonts, must have the CORS header
+    location ~* ^.+\.(eot|ttf|otf|woff|woff2)$  {
+        access_log off;
+        gzip on;
+        expires 30d;
+        add_header Access-Control-Allow-Origin *;
+    }
+
+    location /api {
+        # proxy_set_header X-Real-IP $remote_addr;
+        # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # proxy_set_header Host $http_host;
+        # proxy_set_header X-NginX-Proxy true ;
+        # rewrite ^/api/(.*) /$1 break;
+        proxy_pass ${APIGW_URL} ;
+        proxy_redirect off;
+        proxy_ssl_verify off;
+
+    }
+
+    location / {
+        try_files $uri $uri/ $uri.html /index.html =404;
+    }
+}

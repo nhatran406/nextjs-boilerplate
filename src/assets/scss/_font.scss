@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Effra B'),
+    url('/static/fonts/effra/Effra_Std_Bdn.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Effra L'),
+    url('/static/fonts/effra/Effra_Std_Ltn.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Effra';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Effra R'),
+    url('/static/fonts/effra/Effra_Std_Rgn.otf') format('opentype');
+}

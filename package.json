@@ -1,0 +1,76 @@
+{
+	"name": "nextjs-boilerplate",
+	"private": true,
+	"version": "1.0.0",
+	"license": "MIT",
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"dependencies": {
+		"@material-ui/core": "^4.8.0",
+		"@material-ui/icons": "^4.5.1",
+		"@zeit/next-sass": "^1.0.1",
+		"axios": "^0.19.0",
+		"classnames": "^2.2.6",
+		"clsx": "^1.0.4",
+		"dotenv": "^8.2.0",
+		"http-status": "^1.4.2",
+		"immer": "^5.0.2",
+		"isomorphic-fetch": "^2.2.1",
+		"next": "^9.1.6",
+		"next-offline": "^4.0.0",
+		"node-sass": "^4.13.0",
+		"react": "^16.12.0",
+		"react-axe": "^3.2.0",
+		"react-content-loader": "^4.3.4",
+		"react-dom": "^16.12.0",
+		"react-id-swiper": "2.3.2",
+		"react-lottie": "^1.2.3",
+		"react-select": "2.4.3",
+		"react-text-mask": "^5.4.3",
+		"swiper": "^5.2.1"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-eslint": "^10.0.3",
+		"babel-jest": "^24.9.0",
+		"babel-plugin-module-resolver": "^4.0.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"cross-env": "^7.0.3",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.2",
+		"eslint": "^6.7.2",
+		"eslint-config-prettier": "^6.7.0",
+		"eslint-plugin-flowtype": "^2.50.3",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-react": "^7.17.0",
+		"eslint-plugin-react-hooks": "^1.5.0",
+		"express": "^4.17.1",
+		"http-proxy-middleware": "^0.20.0",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^24.9.0",
+		"jest-canvas-mock": "^2.2.0",
+		"prettier": "^1.19.1"
+	},
+	"scripts": {
+		"start": "cross-env NODE_ENV=development node server.js",
+		"lint": "eslint --ignore-path .gitignore src",
+		"lint:fix": "eslint --ignore-path .gitignore src --fix",
+		"build": "next build",
+		"build:server": "NEXT_TARGET=server next build",
+		"export:server": "NEXT_TARGET=server next export -o build/",
+		"export": "npm run build:server && npm run export:server",
+		"test": "jest --coverage",
+		"test:watch": "jest --watch"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx}": [
+			"eslint --fix",
+			"prettier --write 'src/**/*.{js,jsx,css,scss}'",
+			"git add"
+		]
+	}
+}

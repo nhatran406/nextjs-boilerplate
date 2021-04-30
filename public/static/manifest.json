@@ -1,0 +1,17 @@
+{
+  "filename": "static/manifest.json",
+  "name": "Nextjs Webapp",
+  "short_name": "Nextjs Boilerplate",
+  "description": "Nextjs Boilerplate",
+  "icons": [
+    {
+      "src": "img/logo",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#002395",
+  "background_color": "#fff"
+}

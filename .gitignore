@@ -1,0 +1,23 @@
+node_modules/
+build
+.next
+out
+*-error.log
+yarn.lock
+
+# Test
+coverage
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# dotenv environment variables file
+.env
+.idea
+.vscode
